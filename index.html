@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudySpace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- Header -->
+        <header class="topbar">
+            <h1>StudySpace<span>.</span></h1>
+            <p>Your academics, organised.</p>
+        </header>
+
+        <main class="dashboard">
+
+            <!-- Subjects Dashboard -->
+            <div class="dashboard-header">
+                <div>
+                    <h2>My Subjects</h2>
+                    <p>Choose a subject to access your workspace.</p>
+                </div>
+
+                <div class="actions">
+                    <select id="semesterSelect">
+                        <option value="3">Semester 3</option>
+                        <option value="1">Semester 1</option>
+                        <option value="2">Semester 2</option>
+                        <option value="4">Semester 4</option>
+                    </select>
+
+                    <button id="addSubjectBtn">+ Add Subject</button>
+                </div>
+            </div>
+
+            <section id="subjectGrid" class="subject-grid"></section>
+
+            <!-- Subject Workspace -->
+            <section id="subjectWorkspace" style="display: none;">
+
+                <button id="backBtn">← Back to Subjects</button>
+
+                <h2 id="workspaceTitle"></h2>
+                <p>Manage everything related to this subject.</p>
+
+                <div class="workspace-grid">
+
+                    <div class="workspace-card" id="materialsCard">
+                        <h3>📚 Materials</h3>
+                        <p>PPTs, PDFs and notes</p>
+                    </div>
+
+                    <div class="workspace-card" id="linksCard">
+                        <h3>🔗 Useful Links</h3>
+                        <p>YouTube, ChatGPT, Claude and more</p>
+                    </div>
+
+                    <div class="workspace-card" id="pyqsCard">
+                        <h3>📝 PYQs</h3>
+                        <p>Previous year question papers</p>
+                    </div>
+
+                    <div class="workspace-card" id="syllabusCard">
+                        <h3>📋 Syllabus</h3>
+                        <p>Units, topics and completion status</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Materials Section -->
+            <section id="materialsSection" style="display: none;">
+
+                <button id="materialBackBtn">← Back to Workspace</button>
+
+                <h2 id="materialTitle">Materials</h2>
+                <p>Upload and manage your study materials.</p>
+
+                <div class="upload-area">
+                    <input
+                        type="file"
+                        id="materialInput"
+                        accept=".pdf,.ppt,.pptx,.doc,.docx"
+                        multiple
+                    >
+                </div>
+
+                <h3>Uploaded Files</h3>
+                <ul id="materialList"></ul>
+
+            </section>
+
+            <!-- Useful Links Section -->
+            <section id="linksSection" style="display: none;">
+
+                <button id="linksBackBtn">← Back to Workspace</button>
+
+                <h2 id="linksTitle">Useful Links</h2>
+                <p>Save useful websites and learning resources.</p>
+
+                <div class="upload-area">
+                    <input
+                        type="text"
+                        id="linkName"
+                        placeholder="Enter link name"
+                    >
+
+                    <input
+                        type="url"
+                        id="linkURL"
+                        placeholder="Paste URL (https://...)"
+                    >
+
+                    <button id="addLinkBtn">+ Add Link</button>
+                </div>
+
+                <h3>Saved Links</h3>
+                <ul id="linksList"></ul>
+
+            </section>
+
+            <!-- PYQs Section -->
+            <section id="pyqsSection" style="display: none;">
+
+                <button id="pyqsBackBtn">← Back to Workspace</button>
+
+                <h2 id="pyqsTitle">PYQs</h2>
+                <p>Upload and manage previous year question papers.</p>
+
+                <div class="upload-area">
+                    <input
+                        type="file"
+                        id="pyqsInput"
+                        accept=".pdf,.ppt,.pptx,.doc,.docx"
+                        multiple
+                    >
+                </div>
+
+                <h3>Uploaded Question Papers</h3>
+                <ul id="pyqsList"></ul>
+
+            </section>
+
+            <!-- Syllabus Section -->
+            <section id="syllabusSection" style="display: none;">
+
+                <button id="syllabusBackBtn">← Back to Workspace</button>
+
+                <h2 id="syllabusTitle">Syllabus</h2>
+                <p>Organise your units and track your progress.</p>
+
+                <div id="overallProgress" class="overall-progress"></div>
+
+                <div class="upload-area">
+                    <input
+                        type="text"
+                        id="unitName"
+                        placeholder="Enter unit name"
+                    >
+
+                    <button id="addUnitBtn">+ Add Unit</button>
+                </div>
+
+                <div id="syllabusList"></div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
